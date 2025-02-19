@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Roadmap container */
+
+.roadmap-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+/* Roadmap Step */
+
+.roadmap-step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+
+/* Roadmap Circle */
+
+.roadmap-circle {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+
+/* Roadmap Box */
+
+.roadmap-box {
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+
+
+/* Zig-Zag Connector */
+
+.roadmap-step::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-left: 4px solid #ccc;
+    border-bottom: 4px solid #ccc;
+    transform: rotate(45deg);
+    top: 50%;
+    left: calc(50% - 20px);
+    z-index: -1;
+}
+
+.roadmap-step:nth-child(even)::after {
+    left: auto;
+    right: calc(50% - 20px);
+    border-bottom: none;
+    border-top: 4px solid #ccc;
+}
